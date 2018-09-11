@@ -52,17 +52,13 @@ public class MemberCtrl {
 		String view = "public:member/login.tiles";
 		
 		if(p.test(mbrMapper.exist(param.getUserid()))) {
-			System.out.println("엑짖은탐");
-			System.out.println("파람파람 : "+param);
-			Function<Member, String> f = (t) ->{
-				System.out.println("**********" + mbrMapper.login(t));
+			Function<Member, String> f = (t) ->{ //타입 Member = t, String = 리턴타입 
 				return mbrMapper.login(t);
 			};
 			
-			 view = (f.apply(param) != null)?
+			 view = (f.apply(param) != null)? // 얘가 apply해서 실행하는애 윗놈은 기능만있고 실행되지않음.
 					"auth:common/contact.tiles":"public:member/login.tiles";
 		}
-		System.out.println("뷰정보 " + view);
 		return view;
 		
 	}
