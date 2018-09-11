@@ -36,6 +36,6 @@
 		alert("보드리스트 클릭")
 	})
 	$('#mypage_btn').click(function(){
-		location.href = "${ctx/member/mypage}"
+		location.href = "${ctx}/member/mypage"
 	})
      </script>

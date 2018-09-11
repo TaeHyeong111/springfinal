@@ -18,9 +18,8 @@
     </definition>
     
      <definition name="auth:*/*.tiles" extends="public">
-     <put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
     <put-attribute name="contact" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
-    <put-attribute name="navigation" value="/WEB-INF/views/member/navigation.jsp"></put-attribute>
+    <put-attribute name="navigation" value="/WEB-INF/views/member/navigation.jsp"/>
     </definition>
     
 </tiles-definitions>

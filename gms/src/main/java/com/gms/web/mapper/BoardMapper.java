@@ -5,19 +5,19 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.gms.web.domain.ArticleDTO;
+import com.gms.web.brd.Article;
 @Repository
 public interface BoardMapper {
-	public void add(ArticleDTO p);//
+	public void add(Article p);//
 	public List<?> selectList(Map<?,?>p); 
 	public List<?> selectSome(Map<?,?>p); 
-	public ArticleDTO selectOne(ArticleDTO p); //
+	public Article selectOne(Article p); //
 	public int count(Map<?,?>p);
-	public void update(ArticleDTO p);//
-	public void delete(ArticleDTO p);//
+	public void update(Article p);//
+	public void delete(Article p);//
 	public int countPaging();
 	public int listSearchCount();
-	public ArticleDTO listCriteria();
-	public ArticleDTO listPage();
-	public List<ArticleDTO> listSearch();
+	public Article listCriteria();
+	public Article listPage();
+	public List<Article> listSearch();
 }
