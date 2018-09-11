@@ -6039,3 +6039,6 @@ Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/TaeHye
 
 !ENTRY org.eclipse.egit.ui 4 0 2018-09-11 20:29:25.786
 !MESSAGE Can't connect to any repository: https://github.com/TaeHyeong111/springfinal.git (https://github.com/TaeHyeong111/springfinal.git: not authorized)
+
+!ENTRY org.eclipse.equinox.security 1 0 2018-09-11 20:29:41.633
+!MESSAGE New keyring password generated. 
