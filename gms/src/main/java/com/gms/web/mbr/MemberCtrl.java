@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.gms.web.cmm.HomeCtrl;
@@ -21,6 +23,7 @@ import com.gms.web.cmm.Util;
 @Controller
 @RequestMapping("/member")
 @SessionAttributes("user")
+@RestController
 public class MemberCtrl {
 	static final Logger logger = LoggerFactory.getLogger(MemberCtrl.class);
 	@Autowired Member member; //Autowired 객체를 만들어주는애
@@ -46,7 +49,7 @@ public class MemberCtrl {
 	}
 	@RequestMapping("/remove")
 	public void remove() {}
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@PostMapping(value="/login")
 	public String login(@ModelAttribute("member") Member param, Model model) {
 		String view = "public:member/login.tiles";
 
