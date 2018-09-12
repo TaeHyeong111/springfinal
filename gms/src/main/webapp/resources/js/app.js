@@ -5,11 +5,11 @@ app = {
 		init : x=>{
 			app.session.ctx(x)
 			app.onCreate();
-		}
-		/*onCreate : ()=>{
+		},
+		onCreate : ()=>{
 			console.log('step3')
 			app.setContentView()
-			$('#login_btn').click(()=>{ (/web/move/public/member/login)
+			$('#login_btn').click(()=>{ (/web/move/member/login)
 				location.href = app.x()+'/move/public/member/login'
 			})
 			$('#join_btn').click(()=>{
@@ -50,46 +50,10 @@ app = {
 			$('#logout_btn').click(()=>{
 				location.href = app.x()+'/member/logout'
 			})
-		},
-		setContentView : ()=>{
-			console.log('step4 ::'+app.j());
-		}*/
+			.submit();
+			
+			setContentView : ()=>{
+				console.log('step4 ::'+app.j());
+			}
+	}
 }
-app.session = {
-		ctx : x =>{
-			sessionStorage.setItem('ctx',x);
-			sessionStorage.setItem('js',x+'/resources/js');
-			sessionStorage.setItem('css',x+'/resources/css');
-			sessionStorage.setItem('img',x+'/resources/img');
-		},
-		path : x =>{
-			return sessionStorage.getItem(x);
-		}
-		
-}
-app.x = ()=>{
-	return app.session.path('ctx')
-}
-app.j = ()=>{
-	return app.session.path('js')
-}
-app.c = ()=>{
-	return app.session.path('css')
-}
-app.i = ()=>{
-	return app.session.path('img')
-}
-
-/*user.session = x=>{
-	$.each(x, function(k,v){
-		alert('key:'+k+',value:'+v);
-		sessionStorage.setItem(k, v);
-	})		
-		}*/
-
-/*if(typeof test == 'undefined'){
-	alert('test가 undefined이다.');
-}*/
-/*객체 리터럴방식으로 코딩함 
- * var는 static 개념 let은 에어리어메소드 개념
- */
