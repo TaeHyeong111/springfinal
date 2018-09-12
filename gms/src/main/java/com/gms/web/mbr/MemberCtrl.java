@@ -16,18 +16,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.gms.web.cmm.HomeCtrl;
+import com.gms.web.cmm.Util;
+
 @Controller
 @RequestMapping("/member")
 @SessionAttributes("user")
 public class MemberCtrl {
-	static final Logger logger = LoggerFactory.getLogger(HomeCtrl.class);
-	@Autowired Member member;
+	static final Logger logger = LoggerFactory.getLogger(MemberCtrl.class);
+	@Autowired Member member; //Autowired 객체를 만들어주는애
 	@Autowired MemberService memberService;
 	@Autowired MemberMapper mbrMapper;
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String add(@ModelAttribute Member member) /*<<커맨?��?��* model?? 값을 �??��?��?�� ?��?��?��*/ {
+	public String add(@ModelAttribute Member member) {
 		memberService.add(member);
-		System.out.println("멤버 : " + member);
 		return "add__success";
 	}
 	@RequestMapping("/list")
@@ -47,11 +48,9 @@ public class MemberCtrl {
 	public void remove() {}
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(@ModelAttribute("member") Member param, Model model) {
-		//Predicate<T> boolean test(T t) / Login
-		Predicate<String> p = s -> !s.equals("");
 		String view = "public:member/login.tiles";
-		
-		if(p.test(mbrMapper.exist(param.getUserid()))) {
+
+		if(Util.isNotEqual.test(mbrMapper.exist(param.getUserid()))) { //if 블록에서는 펑션이 기능을 하고 사라짐
 			Function<Member, String> f = (t) ->{ //타입 Member = t, String = 리턴타입 
 				return mbrMapper.login(t);
 			};
@@ -59,8 +58,15 @@ public class MemberCtrl {
 			 view = (f.apply(param) != null)? // 얘가 apply해서 실행하는애 윗놈은 기능만있고 실행되지않음.
 					"auth:common/contact.tiles":"public:member/login.tiles";
 		}
-		return view;
 		
+		if(Util.isEqual.test(view)) {
+			member = mbrMapper.retrieve(param);
+		}
+		member = (Predicate.isEqual("auth:common/contact.tiles").test(view))?
+				mbrMapper.retrieve(param):new Member();
+				Util.log.accept(member.toString());
+				
+		return view;
 	}
 	@RequestMapping("/logout")
 	public String logout() {

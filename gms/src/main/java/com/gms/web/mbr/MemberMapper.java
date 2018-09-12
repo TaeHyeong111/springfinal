@@ -2,7 +2,7 @@ package com.gms.web.mbr;
 import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Repository;
-@Repository
+@Repository //Repository ㅇ
 public interface MemberMapper {
 	public void add(Member p);
 	public List<?> list(Map<?,?>p); 

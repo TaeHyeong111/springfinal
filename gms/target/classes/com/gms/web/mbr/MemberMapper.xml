@@ -16,5 +16,8 @@
   <select id="exist" resultType="string">
   SELECT NAME FROM MEMBER WHERE USERID LIKE #{userid} ;
   </select>
+  <select id="retrieve" resultType="com.gms.web.mbr.Member">
+  SELECT * FROM MEMBER WHERE USERID LIKE #{userid} AND PASSWORD LIKE #{password};
+  </select>
  
 </mapper>
