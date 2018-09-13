@@ -3,7 +3,7 @@ $.prototype.nullChecker = x =>{
 	let flag = false;
 	let i = 0;
 	for(x[i] in x){
-		if(x[i] ==0){
+		if(x[i] ===''){
 			flag = true;
 		}
 	}

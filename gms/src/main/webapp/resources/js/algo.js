@@ -12,7 +12,6 @@ algo = { //algo 클래스, init 메소드, x 파라미터
             $('#wrapper').empty();
         }
 };
-
 algo.main = {
         onCreate : () =>{
             algo.main.setContentView();
@@ -28,25 +27,74 @@ algo.main = {
         	+'</table>'
         	+'</div>');
         	
-            $('#t__1').html('<h1>ALGORITHM</h1><div id="content"></div>');
-            $('#t__1').append('<a id="arith"><h3>등차수열</h3></a>');
-            $('#arith').click(e=>{
-                let ques = 
-                	'<h3> 시작값 x, 마지막값 y, 공차 d 인 등차수열의 합을 구하시오 </h3>'
+        	let $t__1 = $('#t__1');
+        	let $t__r = $('#t__r');
+        	$("<ul />")
+        	.attr({id : 'side__menu'})
+        	.addClass('list-group').appendTo($t__1);
+        	$('<li/>')
+        	.attr({id : 'arith'})
+        	.addClass('list-group-item')
+        	.appendTo($('#side__menu'));
+        	$('<a/>')
+        	.attr({href : '#'})
+        	.html('등차수열의 합')
+        	.appendTo($('#arith'))
+        	.click(e=>{
+        	$t__r.empty();
+        		/*let ques = 
+                	'<div id="ques"><h3> 시작값 x, 마지막값 y, 공차 d 인 등차수열의 합을 구하시오 </h3>'
                 	+'<label for="시작값"> 시작값 </label> <input id="sta" type="text" value="">'
                 	+'<label for="마지막값"> 마지막값 </label> <input id="end" type="text" value="">'
                 	+'<label for="공차"> 공차 </label> <input id="d" type="text" value="">'
                 	+'<button id="bt">결과보기</button>'
-                	+'<h6 id="rs"></h6>'
-                	
-                	$('#t__r').append(ques);
-                	$('#bt').click(()=>{
-                	$('#rs').empty().text(($.fn.zeroChecker([
-                	  $('#sta').val(),
-                      $('#end').val(),
-                      $('#d').val()]))?
-                    		  '빈칸을 채우세요':'완성하세요'
-                    );
+                	+'<h6 id="rs"></h6></div>';*/
+        		$('<div/>')
+        		.attr({id:'ques'}).appendTo($t__r);
+        		$('<h3>')
+        		.html('시작값 x, 마지막값 y, 공차 d 인 등차수열의 합을 구하시오 ').appendTo('#ques')
+        		$('<label>').html('시작값').appendTo('#ques');
+        		$('<input>')
+        		.attr({id:'sta',type:'text'}).appendTo('#ques')
+        		$('<br>').appendTo('#ques');
+        		$('<label>').html('마지막값').appendTo('#ques');
+        		$('<input>')
+        		.attr({id:'end',type:'text'}).appendTo('#ques')
+        		$('<br>').appendTo('#ques');
+        		$('<label>').html('공차').appendTo('#ques');
+        		$('<input>')
+        		.attr({id:'d',type:'text'}).appendTo('#ques')
+        		$('<br>').appendTo('#ques');
+        		$('<button>') // 버튼은 부트스트랩 씬텍스에 의해 class를 주어야함
+        		.addClass('btn btn-primary')
+        		.html('결과보기')
+        		.appendTo($('#ques'))
+        		.click(e=>{
+        			$('#rs').remove();
+        		    let sta = $('#sta').val()*1;
+                    let end = $('#end').val()*1;
+                    let d = $('#d').val()*1;
+                    let sum = 0;
+                    let i = sta;
+                    while(i <= end){
+                        sum += sta;
+                        sta += d;
+                        i++;
+                    }
+        			$('<h6/>')
+        			.attr({id : 'rs'})
+        			.text(($.fn.zeroChecker([
+                    $('#sta').val(),
+                    $('#end').val(),
+                    $('#d').val()]))?
+                    '빈칸을 채우세요':sum
+                      ).appendTo($('#ques'));
+        		})
+        	
+          /*  $('#t__1').html('<h1>ALGORITHM</h1><div id="content"></div>');
+            $('#t__1').append('<a id="arith"><h3>등차수열</h3></a>');
+            $('#arith').click(e=>{
+            	//ggggggggggggg
                 })
                 
             }),
@@ -79,7 +127,7 @@ algo.main = {
             })
             $('#content').append('<a id = "factorial"><h3>팩토리얼<h3></a>')
             $('#factorial').click(e=>{
-            	alert('팩토리얼 선택')
+            	alert('팩토리얼 선택')*/
             })
         }
 };
@@ -115,8 +163,6 @@ algo.router = {
                 ()=>{
                     $.extend(new Session(x));        //확장. JS 객체기반언어
                     $.getScript($.ctx()+'/resources/js/util.js')
-                    .done(x=>{console.log("실행");})
-                    .fail(x=>{console.log('실패')});
                     algo.main.onCreate();
                 }
         );
