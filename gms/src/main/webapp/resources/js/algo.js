@@ -305,7 +305,7 @@ algo.router = {
 	        $.getScript(x+'/resources/js/router.js',  // 외부의 JS 파일을 호출하는 것. 자바로치면 import의 의미.
 	                ()=>{
 	                    $.extend(new Session(x));        //확장. JS 객체기반언어
-	                    $.getScript($.ctx()+'/resources/js/util.js')
+	                    $.getScript($.ctx()+'/resources/js/util.js') //프로토타입 : $.fn.ctx
 	                    .done(x=>{console.log('실행');})
 	                    .fail(x=>{console.log('실패')});
 	                    algo.main.onCreate();
