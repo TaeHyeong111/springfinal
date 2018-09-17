@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="ContentView" key="selection"/>
+		<item value="util" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="ContentView"/>
+			<item value="util"/>
 			<item value="wrapper"/>
-			<item value="content"/>
+			<item value="empty"/>
+			<item value="done"/>
+			<item value="rs"/>
+			<item value="bt"/>
 			<item value="arith"/>
+			<item value="text"/>
+			<item value="#t__1"/>
+			<item value="ContentView"/>
+			<item value="content"/>
 			<item value="session"/>
 			<item value="getItem"/>
 			<item value="setItem"/>
 			<item value="sessionStorage"/>
-			<item value="sessionS"/>
-			<item value="console.log"/>
-			<item value="console.log2"/>
-			<item value="setContent"/>
-			<item value="Session"/>
-			<item value="tiles"/>
-			<item value="to;es"/>
 		</list>
 		<list key="replacehistory">
 		</list>

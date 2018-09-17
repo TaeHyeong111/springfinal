@@ -17,7 +17,7 @@ algo.main = {
             algo.main.setContentView();
         },
         setContentView : ()=>{
-        	$('#wrapper').html('<h1>알고리즘</h1><h3>수 열</h3><div id="ctn">'
+        	$('#wrapper').html('<h1>알고리즘</h1><h3>수 열</h3>;<div id="ctn">'
         	+'<table id="tbl" style="width:800px;height:300px;'
         	+'border-collapse: collapse;border; 1px solid black;margin:0 auto">'
         	+ '<tr style="border: 1px solid black;">'
@@ -36,10 +36,12 @@ algo.main = {
         	.attr({id : 'arith'})
         	.addClass('list-group-item')
         	.appendTo($('#side__menu'));
-        	$('<a/>')
+        	/* let anchor = $('<a/>')
         	.attr({href : '#'})
-        	.html('등차수열의 합')
-        	.appendTo($('#arith'))
+        	.html('등차수열의 합') */   //동적
+        	let anchor = $.fn.anchor({txt:'등차수열의 합'})
+        	// <a href="#">등차수열의 합</a> 정적 (변하지않는 )
+        	anchor.appendTo($('#arith'))
         	.click(e=>{
         	$t__r.empty();
         		/*let ques = 
@@ -49,11 +51,25 @@ algo.main = {
                 	+'<label for="공차"> 공차 </label> <input id="d" type="text" value="">'
                 	+'<button id="bt">결과보기</button>'
                 	+'<h6 id="rs"></h6></div>';*/
+        		
+        		
         		$('<div/>')
         		.attr({id:'ques'}).appendTo($t__r);
         		$('<h3>')
         		.html('시작값 x, 마지막값 y, 공차 d 인 등차수열의 합을 구하시오 ').appendTo('#ques')
-        		$('<label>').html('시작값').appendTo('#ques');
+        		
+        		let arr = 
+        			[{name : '시작값',id : 'sta'},
+        			{name : '종료값',id : 'end'},
+        			{name : '공차', id : 'd'}];
+        		
+        		$.each(arr, function(){
+        			$('<label/>').html(this.name).appendTo('#ques');
+            		$('<input>').attr({id:this.id,type:'text'}).appendTo('#ques')
+            		$('<tr/>').appendTo('#ques');
+        		})
+        	
+        		/*$('<'+'label'+'/>').html('시작값').appendTo('#ques');
         		$('<input>')
         		.attr({id:'sta',type:'text'}).appendTo('#ques')
         		$('<br>').appendTo('#ques');
@@ -63,7 +79,8 @@ algo.main = {
         		$('<br>').appendTo('#ques');
         		$('<label>').html('공차').appendTo('#ques');
         		$('<input>')
-        		.attr({id:'d',type:'text'}).appendTo('#ques')
+        		.attr({id:'d',type:'text'}).appendTo('#ques')*/
+        		
         		$('<br>').appendTo('#ques');
         		$('<button>') // 버튼은 부트스트랩 씬텍스에 의해 class를 주어야함
         		.addClass('btn btn-primary')
@@ -83,7 +100,7 @@ algo.main = {
                     }
         			$('<h6/>')
         			.attr({id : 'rs'})
-        			.text(($.fn.zeroChecker([
+        			.text(($.fn.zeroChecker([ //fn은 펑션의 약자 
                     $('#sta').val(),
                     $('#end').val(),
                     $('#d').val()]))?
@@ -162,7 +179,7 @@ algo.router = {
         $.getScript(x+'/resources/js/router.js', //외부의 js 파일을 호출 (자바의 import)
                 ()=>{
                     $.extend(new Session(x));        //확장. JS 객체기반언어
-                    $.getScript($.ctx()+'/resources/js/util.js')
+                    $.getScript($.ctx()+'/resources/js/util.js') // 공간을 이미 만들어서 필요할때 가져옴 
                     algo.main.onCreate();
                 }
         );

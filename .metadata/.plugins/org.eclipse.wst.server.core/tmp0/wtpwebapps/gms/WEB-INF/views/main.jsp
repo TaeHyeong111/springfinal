@@ -20,13 +20,15 @@
     <script src="${ctx}/resources/vendor/jquery/jquery.min.js"></script>
     <script src="${ctx}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="${ctx}/resources/js/algo.js"></script>
+    <%-- <script src="${ctx}/resources/js/project.js"></script> --%>
 </head>    
 <body>
 <div id="wrapper">
 </div>
 
 <script>
-	algo.init('${ctx}');
+	 algo.init('${ctx}'); 
+	/* pro.init('${ctx}'); */
 </script>
 </body>
 </html>
