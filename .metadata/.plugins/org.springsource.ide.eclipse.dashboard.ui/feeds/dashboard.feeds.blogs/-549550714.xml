@@ -19,7 +19,7 @@
 &lt;p&gt;With the upcoming Lovelace GA release, we&amp;#8217;re going to ship a new Spring Data Module: &lt;a href="https://projects.spring.io/spring-data-jdbc/"&gt;Spring Data JDBC&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
-&lt;p&gt;The idea behind Spring Data JDBC is to provide access to relational databases without submitting to the complexities of JPA. It offers such features as lazy loading, caching, and dirty tracking. While these are great if you need them, they can actually make thinking about JPA and its behavior harder than it has to be.&lt;/p&gt;
+&lt;p&gt;The idea behind Spring Data JDBC is to provide access to relational databases without submitting to the complexities of JPA. JPA offers such features as lazy loading, caching, and dirty tracking. While these are great if you need them, they can actually make thinking about JPA and its behavior harder than it has to be.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;Lazy loading might trigger expensive statements when you don&amp;#8217;t expect it or it might fail with an exception.
