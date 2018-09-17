@@ -1,10 +1,48 @@
-"use strict"
-//콜백 공간은 비동기의 공간이기떄문에 호출시 
-//콜백 함수내의 전역변수가 생기지만 클릭하지않으면 공간이 생기지 않아 메모리 관리에 효율적이다.
-// 다음 화면으로 넘어갈시 해당 전역변수는 사라진다. 
-var ui = {
-	anchor : x=> {return $('<a/>').attr({href : '#'}).html('x.txt');}
+"use strict";
+var ui={
+	div : x =>{return $('<div/>').attr(x);},
+	span : x=>{return $},
+	anchor : x=>{ //ui.anchor({txt:'test'});
+		return $('<a/>').attr({href : '#'}).html(x.txt);},
+	ul :x=>{ 
+		let ul =$('<ul>');
+		for(var i=0;i<x.len;i++){
+			$('<li/>').attr({id : x.id+'-'+i
+				}).appendTo(ul);
+		}
+       	return ul;
+	},
+	label : x=>{
+		return $('<label/>')
+		.attr('for',x.i)
+		.text(x.txt)
+	},
+	input : x=>{ // id,val
+		let p = ui.div({}).addClass("input-group mb-3");
+		(ui.div({id:'input-group-prepend'})
+				.addClass("input-group-prepend"))
+				.html('<span class="input-group-text" id="basic-addon1">'
+						+ x.div__val
+						+'</span>').appendTo(p);
+		/*ui.span({
+			id: "basic-addon1",
+			value: x.div__val
+		}).appendTo($('#input-group-prepend'));*/
+		$("<input/>").attr({
+			id : x.input__id,
+			type: 'text',
+			placeholder:"입금액" ,
+			"aria-label":"Username", 
+			"aria-describedby":"basic-addon1"
+		}).addClass("form-control").appendTo(p);
+		return p;
+	},	
+	inputGroupPrepend : x =>{
+		return '<div class="input-group mb-3">'
+		 + '<div class="input-group-prepend">'
+		 + '<span class="input-group-text" id="basic-addon1">@</span>'
+		 + '</div>'
+		 + '<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">'
+		 + '</div>'
+	}
 }
-let anchor = $('<a/>')
-	.attr({href : '#'})
-	.html('등차수열의 합')

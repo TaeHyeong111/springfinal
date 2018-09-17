@@ -9,5 +9,5 @@ function Session(x){
 		script : ()=>{return sessionStorage.getItem('script')},
 		style : ()=>{return sessionStorage.getItem('style')},
 		img : ()=>{return sessionStorage.getItem('img');},
-	}
+	} // setter를 안만들고 getter메소드만 만든것임 
 }
