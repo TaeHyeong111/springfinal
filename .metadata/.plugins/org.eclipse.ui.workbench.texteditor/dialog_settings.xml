@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="util" key="selection"/>
+		<item value="anchor" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="util"/>
-			<item value="wrapper"/>
-			<item value="empty"/>
-			<item value="done"/>
-			<item value="rs"/>
-			<item value="bt"/>
-			<item value="arith"/>
-			<item value="text"/>
-			<item value="#t__1"/>
-			<item value="ContentView"/>
-			<item value="content"/>
-			<item value="session"/>
-			<item value="getItem"/>
-			<item value="setItem"/>
-			<item value="sessionStorage"/>
+			<item value="anchor"/>
+			<item value="Session"/>
+			<item value="txt"/>
+			<item value="ㅅㅌㅅ"/>
+			<item value="화폐문제"/>
+			<item value="화폐문제."/>
+			<item value="quest"/>
+			<item value="t__l"/>
+			<item value="t__1"/>
+			<item value="appl"/>
+			<item value="apll"/>
+			<item value="compo"/>
+			<item value="응용"/>
+			<item value="117"/>
+			<item value="알고리즘"/>
 		</list>
 		<list key="replacehistory">
 		</list>

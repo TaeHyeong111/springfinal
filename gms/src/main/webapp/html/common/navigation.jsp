@@ -22,14 +22,4 @@
         </div>
       </div>
     </nav>
-    <script>
-    $('#login_btn').click(function(){ /*(/web/move/public/member/login)*/
-		location.href = '${ctx}/move/public/member/login'
-	})
-	$('#join_btn').click(function(){
-		location.href = '${ctx}/move/public/member/add'
-	})
-	$('#board__list').click(function(){
-		location.href='${ctx}/board/read'
-	})
-    </script>
+    

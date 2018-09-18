@@ -4,7 +4,7 @@ function Session(x){
 	sessionStorage.setItem('script',x+'/resources/js');
 	sessionStorage.setItem('style',x+'/resources/css');
 	sessionStorage.setItem('img',x+'/resources/img');
-	return{
+	return{ //json
 		ctx : ()=>{return sessionStorage.getItem('ctx');},
 		script : ()=>{return sessionStorage.getItem('script')},
 		style : ()=>{return sessionStorage.getItem('style')},

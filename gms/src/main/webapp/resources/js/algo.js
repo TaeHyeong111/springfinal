@@ -42,7 +42,6 @@ algo.main =(()=>{
         
         
     	$('#seq').click(x=>{
-    		alert('seq 클릭');
     		$t__l.empty();
     		$.getScript(compo,()=>{
     			ui.anchor({txt:'등차수열의 합'}).appendTo($t__l);
@@ -127,7 +126,6 @@ algo.main =(()=>{
         /*===============================================*/
         
 	$('#appl').click(x=>{
-		alert('appl 클릭');
 		$t__l.empty();
 		$.getScript(compo,()=>{
 			ui.ul({len : 3, id:'menu'}).appendTo($t__l);
@@ -136,10 +134,29 @@ algo.main =(()=>{
 			.click(x=>{
 					$('<h6>화폐문제</h6>').appendTo($t__r);
 					ui.input({
-						inpit__id : 'money',
-						div__val : '입금액'
+						id : 'money',
+						txt : '입금액'
 					})
 					.appendTo($t__r);
+					ui.btn({clazz : 'primary',txt:'전 송'})
+					.appendTo($t__r)
+					.click(e=>{ //이벤트는 콜백함수 여기서 이벤트함수는 click
+						alert('화폐금액 : ' + $('#money').val());
+						$.ajax({ // 기본적인 ajax 형태
+							url : ctx+'/algo/money/',
+							method : 'post',
+							contentType : 'application/json', //contenType 은 mime 타입// 
+							data : JSON.stringify({money : $('#money').val()}), //Json을 자바로 인식시켜주는친구 : JSON.stringify
+							success : d=>{ //d는 자바진영의 맵(data약자로 d) 
+								alert('AJAX 성공이다 !!'+d.test)//키값은 맞춰주어라
+							},
+							error : (m1,m2,m3)=>{
+								alert('에러발생1'+m1)
+								alert('에러발생2'+m2)
+								alert('에러발생3'+m3)
+							}
+						});
+					}) 
 			});
 		});
 	});
@@ -195,7 +212,6 @@ algo.main =(()=>{
        				i++;
        			}
             	a.html('결과값 : '+sum).appendTo($('#ques'));
-
    			}
        	});
    	});
@@ -211,8 +227,7 @@ algo.main =(()=>{
        	$('<h4/>').html('스위치 수열을 구하시오.').appendTo($('#ques'));
        	
        	let json = [{text:'시작값 : ',input:'sta'},
-       			{text:'마지막값 :',input:'end'}
-       			]
+       			{text:'마지막값 :',input:'end'}]
        	
        	$.each(json, (i,j)=> {
        		$('<label/>').html(j.text).appendTo($('#ques'));
@@ -302,11 +317,11 @@ algo.main =(()=>{
 
 algo.router = {
 	    onCreate : x =>{
-	        $.getScript(x+'/resources/js/router.js',  // 외부의 JS 파일을 호출하는 것. 자바로치면 import의 의미.
+	        $.getScript(x+'/resources/js/router.js',  // $.은 JQuery 객체 
 	                ()=>{
-	                    $.extend(new Session(x));        //확장. JS 객체기반언어
-	                    $.getScript($.ctx()+'/resources/js/util.js') //프로토타입 : $.fn.ctx
-	                    .done(x=>{console.log('실행');})
+	                    $.extend(new Session(x)); // new는 session의 copy 개념임
+	                    $.getScript($.ctx()+'/resources/js/util.js') //프로토타입은 : $.fn.ctx
+	                    .done(x=>{console.log('실행')})
 	                    .fail(x=>{console.log('실패')});
 	                    algo.main.onCreate();
 	                }
