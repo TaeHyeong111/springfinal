@@ -19,16 +19,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="${ctx}/resources/vendor/jquery/jquery.min.js"></script>
     <script src="${ctx}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="${ctx}/resources/js/algo.js"></script>
-    <%-- <script src="${ctx}/resources/js/project.js"></script> --%>
+    <script src="${ctx}/resources/js/app.js"></script>
 </head>    
 <body>
 <div id="wrapper">
 </div>
 
 <script>
-	 algo.init('${ctx}'); 
-	/* pro.init('${ctx}'); */
+	 app.init('${ctx}');
 </script>
 </body>
 </html>
