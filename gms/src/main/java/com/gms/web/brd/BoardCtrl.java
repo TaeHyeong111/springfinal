@@ -14,18 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.gms.web.mbr.Member;
 import com.gms.web.mbr.MemberMapper;
-import com.gms.web.mbr.MemberService;
 
 @Controller
 @RequestMapping("/board")
 public class BoardCtrl {
 	static final Logger logger = LoggerFactory.getLogger(BoardCtrl.class);
 	@Autowired Article article;
-	@Autowired MemberService memberService;
 	@Autowired MemberMapper mbrMapper;
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String add(@ModelAttribute Member member) /*<<커맨?��?��* model?? 값을 �??��?��?�� ?��?��?��*/ {
-		memberService.add(member);
 		System.out.println("멤버 : " + member);
 		return "add__success";
 	}
@@ -46,13 +43,7 @@ public class BoardCtrl {
 		//Predicate<T> boolean test(T t) / Login
 		Predicate<String> p = s -> !s.equals("");
 		String view = "login_failed";
-		if(p.test(mbrMapper.exist(param.getUserid()))) {
-			Function<Member, String> f = (t) ->{
-				return mbrMapper.login(t);
-			};
-			view = (f.apply(param).equals("1"))?
-					"login_success":"login_failes";
-		}
+		
 		return view;
 		
 	}

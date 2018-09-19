@@ -18,7 +18,7 @@
         <!-- Project One Row -->
         <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
           <div class="col-lg-6">
-            <img class="img-fluid" src="${ctx}/resources/img/demo-image-01.jpg" alt="">
+            <img class="img-fluid" src="resources/img/demo-image-01.jpg" alt="">
           </div>
           <div class="col-lg-6">
             <div class="bg-black text-center h-100 project">

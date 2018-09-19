@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="anchor" key="selection"/>
+		<item value="per" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="anchor"/>
-			<item value="Session"/>
-			<item value="txt"/>
-			<item value="ㅅㅌㅅ"/>
-			<item value="화폐문제"/>
-			<item value="화폐문제."/>
-			<item value="quest"/>
-			<item value="t__l"/>
-			<item value="t__1"/>
-			<item value="appl"/>
-			<item value="apll"/>
-			<item value="compo"/>
-			<item value="응용"/>
-			<item value="117"/>
-			<item value="알고리즘"/>
+			<item value="per"/>
+			<item value="permi"/>
+			<item value="app.permission"/>
+			<item value="permission"/>
+			<item value="permisstion"/>
+			<item value="permiision"/>
+			<item value="JPG"/>
+			<item value="jpg"/>
+			<item value="넘어온"/>
+			<item value="에러발생"/>
+			<item value="classpath"/>
+			<item value="jackson"/>
+			<item value="jack"/>
+			<item value="&apos;money&apos;"/>
+			<item value="Unrecognized token"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -31,7 +31,7 @@
 		<item value="288" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1230" key="DIALOG_X_ORIGIN"/>
+		<item value="679" key="DIALOG_X_ORIGIN"/>
 		<item value="128" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

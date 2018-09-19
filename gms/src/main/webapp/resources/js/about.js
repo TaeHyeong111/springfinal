@@ -1,5 +1,5 @@
 function aboutUI(){
-	return 	'	<section id="about" class="about-section text-center">'
+	return 	'<div id="about">	<section id="about" class="about-section text-center">'
 	+'    <div class="container">'
 	+'      <div class="row">'
 	+'        <div class="col-lg-8 mx-auto">'
@@ -8,7 +8,7 @@ function aboutUI(){
 	+'            <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>'
 	+'        </div>'
 	+'      </div>'
-	+'      <img src="${ctx}/resources/img/ipad.png" class="img-fluid" alt="">'
+	+'      <img src="resources/img/ipad.png" class="img-fluid" alt="">'
 	+'    </div>'
-	+'  </section>'
+	+'  </section></div>'
 }

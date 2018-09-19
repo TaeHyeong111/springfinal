@@ -3,21 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gms.web.mbr.MemberMapper">
-<insert id="add">
+<insert id="post">
   INSERT INTO MEMBER (USERID,SSN,NAME,ROLL,TEAMID,PASSWORD,AGE,SUBJECT,GENDER)
   VALUES(#{userid},#{ssn},#{name},#{roll},#{teamid},#{password},#{age},#{subject},#{gender});
   </insert>
-  <select id="selectOne" resultType="com.gms.web.mbr.Member">
-    SELECT * FROM MEMBER WHERE USERID LIKE #{userid}
-  </select>
-  <select id="login" resultType="string">
-  SELECT * FROM MEMBER WHERE USERID LIKE #{userid} AND PASSWORD LIKE #{password};
-  </select>
-  <select id="exist" resultType="string">
-  SELECT NAME FROM MEMBER WHERE USERID LIKE #{userid} ;
-  </select>
-  <select id="retrieve" resultType="com.gms.web.mbr.Member">
-  SELECT * FROM MEMBER WHERE USERID LIKE #{userid} AND PASSWORD LIKE #{password};
-  </select>
+ 
+  <select id="get" resultType="com.gms.web.mbr.Member">
+    SELECT * FROM MEMBER
+     <where>
+    	<if test=" userid != null and userid !='' ">
+    		USERID LIKE #{userid}
+    	</if>
+    	<if test=" password != null and password !='' ">
+    		AND PASSWORD LIKE #{password}
+    	</if>
+    </where>
+  </select> 
+  
+  <select id="count" resultType="int">
+     SELECT COUNT(*) FROM MEMBER
+      <where>
+          <if test = " userid != null and userid != '' ">
+              USERID LIKE #{userid}
+          </if>
+      </where>
+ </select>
  
 </mapper>

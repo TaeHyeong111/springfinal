@@ -15,7 +15,7 @@ public class HomeCtrl {
 	static final Logger logger = LoggerFactory.getLogger(HomeCtrl.class);
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest request) {
-		model.addAttribute("ctx",Util.ctx.apply(request));
+		model.addAttribute("ctx",YoonHo.ctx.apply(request));
 		return "main";
 	}
 	@RequestMapping("/move/{frepix}/{dir}/{page}")
