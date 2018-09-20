@@ -2,12 +2,19 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="per" key="selection"/>
+		<item value="nav" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="nav"/>
+			<item value="empty"/>
+			<item value="sucess"/>
+			<item value="url"/>
+			<item value="login"/>
+			<item value="money"/>
+			<item value="re"/>
 			<item value="per"/>
 			<item value="permi"/>
 			<item value="app.permission"/>
@@ -16,13 +23,6 @@
 			<item value="permiision"/>
 			<item value="JPG"/>
 			<item value="jpg"/>
-			<item value="넘어온"/>
-			<item value="에러발생"/>
-			<item value="classpath"/>
-			<item value="jackson"/>
-			<item value="jack"/>
-			<item value="&apos;money&apos;"/>
-			<item value="Unrecognized token"/>
 		</list>
 		<list key="replacehistory">
 		</list>

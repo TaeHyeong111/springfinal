@@ -45,27 +45,24 @@ public class MemberCtrl {
 	public void remove() {}
 	@PostMapping("/login")
 	public @ResponseBody Map<String,Object> login(@RequestBody Member pm) {
-		YoonHo.log.accept("\n --------- MemberController !!--------");
 		Map<String,Object> rm = new HashMap<>();
-		YoonHo.log.accept("넘어온 정보: " + pm.toString());
 		String pwValid = "WRONG";
 		String idValid = "WRONG";
-		YoonHo.log.accept("userid : "+ pm.getUserid());
-		YoonHo.log.accept("userPassword : "+ pm.getPassword());
 		if(mbrMap.count(pm)!=0) {
 			idValid = "CORRECT";
-			YoonHo.log.accept("ID 유효성체크결과 : " + idValid);
 			Function<Member,Member> f=(t)->{
 				return mbrMap.get(t);
 			};
 			mbr = f.apply(pm);
 			pwValid =(mbr != null) ?"CORRECT" : "WRONG";
 			mbr =(mbr != null)? mbr: new Member() ;
-			YoonHo.log.accept("PW 유효성체크결과 : " + pwValid);
 		}
 		rm.put("ID", idValid);
 		rm.put("PW", pwValid);
 		rm.put("MBR", mbr);
+		System.out.println(rm.get("ID"));
+		System.out.println(rm.get("PW"));
+		System.out.println(rm.get("MBR"));
 		return rm;
 	}
 	

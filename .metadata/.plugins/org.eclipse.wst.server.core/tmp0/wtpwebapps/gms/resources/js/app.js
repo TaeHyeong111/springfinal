@@ -55,7 +55,7 @@ app.main=(()=>{
 	            /*$('#board').click(e=>{
 	            	app.board.init();
 	            })*/
-	            $('#join_btn').click(e=>{
+	            $('#add_btn').click(e=>{
 	            	app.permission.add();
 	            }) 
 	        })
@@ -92,11 +92,15 @@ app.permission = (()=>{
 		$('#about').remove();
 		$('#content').empty();
 		$('#projects').remove();
+		$.getScript($.script()+"/compo.js",()=>{ //<< 대기하고 있다가 앞녀석에 의해 작동됨 (옵저버 패턴임) 
 		$.getScript($.script()+"/login.js", ()=>{
 			$('#content').html(loginUI());
-			$('#loginFormBtn').click(e=>{
-				alert('ss')
-				alert($.ctx())
+			ui.anchor({id :"loginFormBtn",txt:'로그인'})
+			.css({"width":"300px"})
+			.addClass('btn btn-primary')
+			.appendTo($('#userLoginForm')) //요기수정
+			.click(e=>{
+				
 				$.ajax({
 					
 					url : $.ctx() + '/member/login/',
@@ -104,15 +108,16 @@ app.permission = (()=>{
 					contentType : 'application/json',
 					data : JSON.stringify({userid : $('#userid').val(), password : $('#password').val()}),
 					success : d=>{ 
+						
 						if(d.ID==="WRONG"){
 							alert('아이디 틀림')
 						}else if(d.PW==="WRONG"){
 							alert('비번 틀림')
 						}else{
-							alert('??')
+							app.router.home();
 						}
-						app.router.home(d);
-		
+						
+						
 					},
 					error : (m1,m2,m3)=>{
 						alert('에러발생1'+m1)
@@ -120,21 +125,9 @@ app.permission = (()=>{
 						alert('에러발생3'+m3)
 					}
 				});
+				
 			})
-			
-			
-			/*$.ajax({ // 기본적인 ajax 형태
-				url : ctx+'/algo/money/',
-				method : 'post',
-				contentType : 'application/json', //contenType 은 mime 타입// 
-				data : JSON.stringify({money : $('#money').val()}), //Json을 자바로 인식시켜주는친구 : JSON.stringify
-				success : d=>{ //d는 자바진영의 맵(data약자로 d) 
-					alert('AJAX 성공이다 !!'+d.test)//키값은 맞춰주어라
-				},
-				error : (m1,m2,m3)=>{
-					alert('에러발생1'+m1)
-					alert('에러발생2'+m2)
-					alert('에러발생3'+m3)*/
+		})
 		})
 	};
 	var add =()=>{
@@ -143,30 +136,57 @@ app.permission = (()=>{
 		$('#about').remove();
 		$('#content').empty();
 		$('#projects').remove();
+		$.getScript($.script()+"/compo.js",()=>{ //<< 대기하고 있다가 앞녀석에 의해 작동됨 (옵저버 패턴임) 
 		$.getScript($.script()+"/add.js", ()=>{
 			$('#content').html(addUI());
-		$('#joinFormBtn').click(e=>{
-			alert('조인폼버튼')
-			$.ajax({
-				url : $.ctx()+"/member/add/",
-				method : "post",
-				contentType : "application/json",
-				data : JSON.stringify({name : $('#name').val(),
-									   userid : $('#userid').val(),
-									   password : $('#password').val(),
-									   ssn : $('#ssn').val()
-									   
-									   }),
-				sucess : d=>{
-					app.permission.login()
-				},
-				error : (m1,m2,m3)=>{
-					alert('에러발생1'+m1)
-					alert('에러발생2'+m2)
-					alert('에러발생3'+m3)
+			/*$("[name='subject']") // checkbox가져오는법
+			.change(function(){
+				alert($(this).val());
+			});*/
+			ui.anchor({id :"addFormBtn",txt:'제출'})
+			.css({"width":"200px"})
+			.addClass('btn btn-primary')
+			.appendTo($('#add_div')) //요기수정
+			.click(e=>{
+				e.preventDefault();
+				alert('click')
+				var arr = [];
+				var sub = $('[name = "subject"]');
+				let i ;
+				let a = '';
+				for (i of sub){
+					if(i.checked){
+						alert('선택된 과목::'+i.value);
+						arr.push(i.value);
+						a += i.value+','
+					}
 				}
+				$.ajax({
+					
+					url : $.ctx() + '/member/add/',
+					method : 'post',
+					contentType : 'application/json',
+					data : JSON.stringify({
+						name : $('#name').val(), 
+						userid : $('#userid').val(),
+						password : $('#password').val(),
+						ssn : $('#ssn').val(),
+						teamid : $('[name = teamid]:checked').val(),
+						roll : $('#roll').val(),
+						subject : a
+						
+					}),
+					success : d=>{ 
+												
+					},
+					error : (m1,m2,m3)=>{
+						alert('에러발생1'+m1)
+						alert('에러발생2'+m2)
+						alert('에러발생3'+m3)
+					}
+				});
+				
 			})
-			
 		})
 		})
 	};
@@ -190,8 +210,7 @@ app.router = {
 	             }
 	      );
 	 },
-	 home : (d)=>{
-		 alert("나는디!"+d)
+	 home : ()=>{
 		 $.when(
 		            $.getScript($.script()+'/about.js'),
 		            $.getScript($.script()+'/content.js'),
@@ -212,6 +231,7 @@ app.router = {
 		                    +footerUI()
 		            );
 		            
+		           
 		            $('#login_btn').html("로그아웃").click(e=>{
 		            	app.main.init()
 		            })
@@ -219,7 +239,7 @@ app.router = {
 		            	app.permission.login();
 		            });
 		            
-		            $('#join_btn').click(e=>{
+		            $('#add_btn').click(e=>{
 		            	app.permission.add();
 		            }) 
 		        })

@@ -1,4 +1,4 @@
-package com.gms.web.mapper;
+/*package com.gms.web.mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -21,3 +21,4 @@ public interface BoardMapper {
 	public Article listPage();
 	public List<Article> listSearch();
 }
+*/

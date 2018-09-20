@@ -1,6 +1,6 @@
 function addUI(){
-	return '<form id="joinForm" name="joinForm">'
-	+    'Name : <input id="name" type="text" name="name" required/><br>'
+	return '<div id="add_div">' 
+	+'Name : <input id="name" type="text" name="name" required/><br>'
 	+    'User ID : <input id="userid" type="text" name="userid" required/> <br>'
 	+     'Password : <input id="password" type="text" name="password" required/><br>'
 	+     'SSN : <input id="ssn" type="text" name="ssn" required/>'
@@ -20,7 +20,6 @@ function addUI(){
 	+      '<option value="android">안드로이드개발</option>'
 	+      '<option value="minfe">민폐</option>'
 	+      '</select>'
-	+      ''
 	+      '<br>수강과목'
 	+      '<input type="checkbox" name="subject"'
 	+      'value="java" checked="checked"/> Java'
@@ -31,6 +30,5 @@ function addUI(){
 	+      '<input type="checkbox" name="subject" value="linux"/> Linux'
 	+      '<input type="checkbox" name="subject" value="html"/> HTML'
 	+      '<input type="checkbox" name="subject" value="spring"/> Spring'
-	+  '</form>'
-	+  '<input id="joinFormBtn" type="button" value="제출" />'
+	+ '</div>'
 }
